@@ -36,7 +36,7 @@ def query_task_response(request):
             'success': 'success',
             'task_id': result.TASK_ID,
             'status': result.STATUS,
-            'address': result.ADDRESS
+            'address': result.FILE_PATH
         }
 
     return HttpResponse(json.dumps(data), content_type='application/json')
