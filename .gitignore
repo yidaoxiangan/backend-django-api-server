@@ -1,3 +1,4 @@
 db.sqlite3
 manage.py
 url_parse/__pycache__
+url_parse/migrations/__pycache__
