@@ -37,8 +37,6 @@ def create_task_response(request):
         'success': 'success',
         'task_id': task_id
     }
-    # ip = request.META.get('REMOTE_ADDR')
-    # print('Create request from ', str(ip), " url is ", str(request.path))
 
     task_record = models.TASK()
     task_record.TASK_ID = task_id
