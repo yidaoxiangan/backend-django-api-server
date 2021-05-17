@@ -1,4 +1,5 @@
 import hashlib
+import os
 import json
 import time
 import random
@@ -41,8 +42,10 @@ def create_task_response(request):
     task_record = models.TASK()
     task_record.TASK_ID = task_id
     task_record.STATUS = "CREATED"
-    task_record.FILE_PATH = constant.base_path + "\\" + task_id + ".mp4"
+    task_record.FILE_PATH = constant.get_path(task_id=task_id)
     task_record.save()
+
+    constant.mkdir(task_id=task_id)
 
     response = HttpResponse(json.dumps(data), content_type='application/json')
     return response
