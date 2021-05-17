@@ -1,4 +1,6 @@
 from django.http import FileResponse
+from django.http import HttpResponseNotAllowed
+from django.http import HttpResponseNotFound
 from . import models
 
 def download_task_function(request):
@@ -11,6 +13,12 @@ def download_task_function(request):
             print(video_path)
             video = open(video_path,'rb')
             return FileResponse(video, content_type='video/mp4')
+        else:
+            return HttpResponseNotFound()
+
+    else:
+        return HttpResponseNotAllowed("POST")
+
 
 
 
